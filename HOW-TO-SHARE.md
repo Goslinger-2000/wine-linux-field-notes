@@ -11,7 +11,7 @@
 | Host | Status |
 |------|--------|
 | GitHub `Goslinger-2000/wine-linux-field-notes` | Primary |
-| GitVerse `wine-linux-field-notes` | Push after token / web create |
+| GitVerse | https://gitverse.ru/goslinger_2000/wine-linux-field-notes |
 
 ## WineHQ (optional leftover)
 
