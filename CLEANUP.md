@@ -2,18 +2,26 @@
 
 After documenting, disposable Wine lab weight was removed from the Linux NVMe to free space for WinApps.
 
-## Removed (safe lab junk)
-- `/tmp/ps-fix` — screenshots / smoke logs  
-- `~/WineApps/build` — wine-dcomp build tree  
-- `~/WineApps/quarantine` — quarantined dumps  
-- Unused runtimes: `wine-custom`, `wine-custom-vanilla-*`, old tarballs (`wine-11.10-*`, `wine-9.6*`, duplicate adobe tarballs if present)  
-- Tiny probe prefixes: `probe-proton`, `test-custom`
+## Removed
+- `/tmp/ps-fix`
+- `~/WineApps/build`
+- `~/WineApps/quarantine`
+- Runtimes: `wine-custom`, `wine-custom-vanilla-11.16`, old tarballs (`wine-11.10-*`, `wine-9.6*`)
+- Prefixes: `probe-proton`, `test-custom`
 
-## Kept (for now)
-- `~/WineApps/docs` + this repo  
-- `~/WineApps/runtimes/wine-dcomp` (reference runtime)  
-- `~/.config/wineapps/*.conf`  
-- Prefixes still used or large app installs: `solidworks`, `photoshop`, `coreldraw`, `ps2024`, `swlicense` — **not** deleted automatically (revisit after WinApps is up)  
-- External `WD SSD` WineApps media — untouched  
+## Result
+- Approx **~14 GiB** freed on `/` (NVMe)
+- Free space after cleanup: about **64 GiB** (was ~51 GiB)
 
-Reclaim estimate from removed trees: on the order of **~10+ GiB** on `/` (build+quarantine+tmp+extra runtimes), exact number depends on what was present.
+## Kept (revisit after WinApps works)
+| Path | ~Size | Why kept |
+|------|-------|----------|
+| `wineprefixes/solidworks` | 12G | until WinApps |
+| `wineprefixes/photoshop` | 7G | legacy |
+| `wineprefixes/coreldraw` | 5.7G | until WinApps |
+| `wineprefixes/ps2024` | 2.1G | PS2024 lab |
+| `wineprefixes/swlicense` | 1.7G | SW license |
+| `runtimes/wine-dcomp` | ~2G | reference |
+| External WD SSD `WineApps` | ~19G | media — untouched |
+
+To free another ~25–30G later: remove unused prefixes once WinApps covers SW/PS/Corel.
