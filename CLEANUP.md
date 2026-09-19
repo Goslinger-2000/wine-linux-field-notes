@@ -1,27 +1,33 @@
-# Disk cleanup (2026-09-20)
+# Disk cleanup
 
-After documenting, disposable Wine lab weight was removed from the Linux NVMe to free space for WinApps.
+## 2026-09-20 (earlier) — lab weight
 
-## Removed
-- `/tmp/ps-fix`
-- `~/WineApps/build`
-- `~/WineApps/quarantine`
-- Runtimes: `wine-custom`, `wine-custom-vanilla-11.16`, old tarballs (`wine-11.10-*`, `wine-9.6*`)
-- Prefixes: `probe-proton`, `test-custom`
+Removed build/quarantine/tmp and old runtimes (`wine-custom*`, probe prefixes).  
+Approx **~14 GiB** freed.
 
-## Result
-- Approx **~14 GiB** freed on `/` (NVMe)
-- Free space after cleanup: about **64 GiB** (was ~51 GiB)
+## 2026-09-20 (later) — Wine host path retired
 
-## Kept (revisit after WinApps works)
-| Path | ~Size | Why kept |
-|------|-------|----------|
-| `wineprefixes/solidworks` | 12G | until WinApps |
-| `wineprefixes/photoshop` | 7G | legacy |
-| `wineprefixes/coreldraw` | 5.7G | until WinApps |
-| `wineprefixes/ps2024` | 2.1G | PS2024 lab |
-| `wineprefixes/swlicense` | 1.7G | SW license |
-| `runtimes/wine-dcomp` | ~2G | reference |
-| External WD SSD `WineApps` | ~19G | media — untouched |
+Decision: daily Adobe / CAD / Corel via **WinApps + VM + RAIL** only. Host Wine no longer needed.
 
-To free another ~25–30G later: remove unused prefixes once WinApps covers SW/PS/Corel.
+### Removed
+| Path | ~Was |
+|------|------|
+| `~/.local/share/wineprefixes/{solidworks,photoshop,coreldraw,ps2024,swlicense}` | ~29 G |
+| `~/WineApps/runtimes/*` (`wine-dcomp`, `wine-proton-adobe`, libs, tarball) | ~4 G |
+| `~/WineApps/repos/{wine-vanilla,SolidWorks-on-Linux,wine-adobe-installers}` | ~1.2 G |
+| `~/WineApps/lab`, `ps2024-qa`, wineapp `*.conf` stubs | small |
+| `~/.wine` if present | — |
+
+### Result
+- Approx **~33 GiB** freed on `/` (NVMe)
+- Free space after: about **86 GiB** (was ~54 GiB)
+
+### Kept
+| Path | Why |
+|------|-----|
+| `~/WineApps/docs` + `public/wine-linux-field-notes` | Field notes (GitHub / GitVerse) |
+| `~/WineApps/media` (~1.1 G) | Installers / assets for the Windows guest |
+| External WD SSD `WineApps` | Untouched media archive |
+| `/opt/wine-staging` | Distro package — remove with `sudo apt remove` if desired |
+
+Reinstall Windows apps only inside the guest; do not recreate host Wine prefixes for PS/SW/Corel.
