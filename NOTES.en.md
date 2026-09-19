@@ -76,6 +76,10 @@
 - Dates and build hashes were environment-specific (Wine custom build, DXVK 2.x, NVIDIA driver of the day, Cinnamon).  
 - This is **not** affiliation with Adobe, CodeWeavers, or DXVK maintainers.
 
+## Aftermath / daily driver
+
+These Wine notes remain useful for **upstream bugs** and for anyone reproducing the same ceilings. For **daily Photoshop / Corel / SolidWorks on this lab**, the chosen path is **WinApps + Windows VM + FreeRDP RAIL** — see [VERDICT.md](VERDICT.md).
+
 ## License
 
 CC0-1.0 (or treat as public domain notes). No warranty.
