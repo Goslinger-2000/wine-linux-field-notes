@@ -3,7 +3,15 @@
 ## This project
 
 - **GitHub:** https://github.com/Goslinger-2000/wine-linux-field-notes  
-- **GitVerse:** _(filled after first push — same repo name `wine-linux-field-notes`)_
+- **GitVerse:** create empty public repo `wine-linux-field-notes`, then:
+
+```bash
+cd ~/WineApps/public/wine-linux-field-notes
+git remote add gitverse https://gitverse.ru/<USER>/wine-linux-field-notes.git
+git push -u gitverse main
+```
+
+  (HTTPS needs GitVerse personal token; or use SSH `git@gitverse.ru:<USER>/wine-linux-field-notes.git`.)
 
 ## Notes mirrors
 
